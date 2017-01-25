@@ -8,32 +8,50 @@ import com.jcgarcia.casetechtest.domain.common.RadioTech;
 
 public class RadioInfo {
 
-    private String cell;
+
+    private int cell;
     private String carrier;
     private RadioTech tech;
     private String signalLevel;
+    private String location;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        RadioInfo radioInfo = (RadioInfo) o;
-
-        if (cell != null ? !cell.equals(radioInfo.cell) : radioInfo.cell != null) return false;
-        if (carrier != null ? !carrier.equals(radioInfo.carrier) : radioInfo.carrier != null)
-            return false;
-        if (tech != radioInfo.tech) return false;
-        return signalLevel != null ? signalLevel.equals(radioInfo.signalLevel) : radioInfo.signalLevel == null;
-
+    public int getCell() {
+        return cell;
     }
 
-    @Override
-    public int hashCode() {
-        int result = cell != null ? cell.hashCode() : 0;
-        result = 31 * result + (carrier != null ? carrier.hashCode() : 0);
-        result = 31 * result + (tech != null ? tech.hashCode() : 0);
-        result = 31 * result + (signalLevel != null ? signalLevel.hashCode() : 0);
-        return result;
+    public void setCell(int cell) {
+        this.cell = cell;
+    }
+
+    public String getCarrier() {
+        return carrier;
+    }
+
+    public void setCarrier(String carrier) {
+        this.carrier = carrier;
+    }
+
+    public RadioTech getTech() {
+        return tech;
+    }
+
+    public void setTech(RadioTech tech) {
+        this.tech = tech;
+    }
+
+    public String getSignalLevel() {
+        return signalLevel;
+    }
+
+    public void setSignalLevel(String signalLevel) {
+        this.signalLevel = signalLevel;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

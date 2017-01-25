@@ -6,7 +6,9 @@ package com.jcgarcia.casetechtest.network;
 
 public interface ClientConnection {
 
-    String doGetRadio();
-    String doRegister(boolean on);
+    void doGetRadio();
+    void doRegister(boolean on);
+    String responseGetRadio();
+    String responseResgister();
     void connect();
 }

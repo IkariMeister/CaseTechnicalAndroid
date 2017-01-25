@@ -5,5 +5,5 @@ package com.jcgarcia.casetechtest.domain.common;
  */
 
 public enum RadioTech {
-    E,G3,H,G4
+    GSM,CDMA,WCDMA,LTE
 }

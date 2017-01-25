@@ -3,6 +3,8 @@ package com.jcgarcia.casetechtest.application;
 import android.app.Application;
 
 import com.jcgarcia.casetechtest.module.AndroidModules;
+import com.jcgarcia.casetechtest.module.MapperModule;
+import com.jcgarcia.casetechtest.module.UseCaseModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,8 +60,10 @@ public class CaseTechTestApp extends Application {
     }
 
     private List<Object> getModules() {
-        return Arrays.asList((Object) new AndroidModules(this));
+        return Arrays.asList((Object) new AndroidModules(this),(Object) new MapperModule(),
+                (Object) new UseCaseModule());
     }
+
 
 
 }
