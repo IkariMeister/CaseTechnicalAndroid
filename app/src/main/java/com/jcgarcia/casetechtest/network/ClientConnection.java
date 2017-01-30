@@ -5,7 +5,9 @@ package com.jcgarcia.casetechtest.network;
  */
 
 public interface ClientConnection {
-
+    /**
+     * This interface should be implemented by the class which implements the socket
+     */
     void doGetRadio();
     void doRegister(boolean on);
     String responseGetRadio();

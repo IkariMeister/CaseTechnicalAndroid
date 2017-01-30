@@ -5,5 +5,6 @@ package com.jcgarcia.casetechtest.domain.common;
  */
 
 public enum RadioTech {
-    GSM,CDMA,WCDMA,LTE
+    GSM, GPRS, EDGE, HSDPA, HSPA, HSPAP, HSUPA, IDEN, EHRPD, EVDO_0, IWLAN, EVDO_A, EVDO_B, CDMA, SCDMA,
+    LTE, UMTS, xRTT1, UNKNOWN
 }

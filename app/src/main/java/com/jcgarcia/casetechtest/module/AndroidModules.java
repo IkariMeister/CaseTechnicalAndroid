@@ -2,6 +2,7 @@ package com.jcgarcia.casetechtest.module;
 
 import android.app.Application;
 import android.content.Context;
+import android.telephony.TelephonyManager;
 
 import dagger.Module;
 import dagger.Provides;
@@ -23,6 +24,11 @@ import dagger.Provides;
     @Provides
     Context provideApplicationContext() {
         return context;
+    }
+
+    @Provides
+    public TelephonyManager providesTelephonyManager() {
+        return (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }
 
     private void validateApplication(Application application) {

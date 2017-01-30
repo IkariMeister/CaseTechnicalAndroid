@@ -1,6 +1,5 @@
 package com.jcgarcia.casetechtest.module;
 
-import com.jcgarcia.casetechtest.application.CaseTechTestApp;
 import com.jcgarcia.casetechtest.domain.entity.RadioInfo;
 import com.jcgarcia.casetechtest.mapper.JsonRadioInfoMapper;
 import com.jcgarcia.casetechtest.mapper.Mapper;

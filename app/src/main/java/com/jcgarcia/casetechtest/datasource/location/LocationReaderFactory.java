@@ -5,23 +5,22 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 
 import com.jcgarcia.casetechtest.exception.CellLocationException;
+import com.jcgarcia.casetechtest.mapper.Mapper;
 
 /**
- * Created by ikari on 25/1/17.
+ * Created by jcgarcia on 25/1/17.
  */
 
 public class LocationReaderFactory {
 
-    public LocationReader getLocationReader(CellLocation location) throws CellLocationException {
+    public Mapper getLocationReader(CellLocation location) throws CellLocationException {
         if(location instanceof GsmCellLocation){
-            return new GsmLocationReader();
+            return new GsmCellLocationReader();
         } else if(location instanceof CdmaCellLocation){
-            return new CdmaLocationReader();
+            return new CdmaCellLocationReader();
         }
         throw new CellLocationException();
     }
 
-    public String read(CellLocation location) throws CellLocationException {
-        return this.getLocationReader(location).read(location);
-    }
+
 }

@@ -12,8 +12,8 @@ public class RadioInfo {
     private int cell;
     private String carrier;
     private RadioTech tech;
-    private String signalLevel;
-    private String location;
+    private SignalLevel signalLevel;
+    private RadioLocation location;
 
     public int getCell() {
         return cell;
@@ -39,19 +39,19 @@ public class RadioInfo {
         this.tech = tech;
     }
 
-    public String getSignalLevel() {
+    public SignalLevel getSignalLevel() {
         return signalLevel;
     }
 
-    public void setSignalLevel(String signalLevel) {
+    public void setSignalLevel(SignalLevel signalLevel) {
         this.signalLevel = signalLevel;
     }
 
-    public String getLocation() {
+    public RadioLocation getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(RadioLocation location) {
         this.location = location;
     }
 }
