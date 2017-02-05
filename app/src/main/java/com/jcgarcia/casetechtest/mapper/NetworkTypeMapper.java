@@ -111,6 +111,8 @@ public class NetworkTypeMapper extends Mapper<Integer, RadioTech> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
                     result = TelephonyManager.NETWORK_TYPE_GSM;
                 }
+                else
+                    result = TelephonyManager.NETWORK_TYPE_UNKNOWN;
                 break;
             case HSDPA:
                 result = TelephonyManager.NETWORK_TYPE_HSDPA;
@@ -131,6 +133,8 @@ public class NetworkTypeMapper extends Mapper<Integer, RadioTech> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
                     result = TelephonyManager.NETWORK_TYPE_IWLAN;
                 }
+                else
+                    result = TelephonyManager.NETWORK_TYPE_UNKNOWN;
                 break;
             case LTE:
                 result = TelephonyManager.NETWORK_TYPE_LTE;
@@ -139,6 +143,8 @@ public class NetworkTypeMapper extends Mapper<Integer, RadioTech> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
                     result = TelephonyManager.NETWORK_TYPE_TD_SCDMA;
                 }
+                else
+                    result = TelephonyManager.NETWORK_TYPE_UNKNOWN;
                 break;
             case UMTS:
                 result = TelephonyManager.NETWORK_TYPE_UMTS;

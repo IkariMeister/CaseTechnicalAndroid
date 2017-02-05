@@ -12,7 +12,7 @@ import javax.inject.Inject;
 public class JsonRadioInfoMapper extends Mapper<RadioInfo,String> {
 
     @Inject
-    private Genson gs;
+    Genson gs;
 
     @Override
     public String map(RadioInfo value) {

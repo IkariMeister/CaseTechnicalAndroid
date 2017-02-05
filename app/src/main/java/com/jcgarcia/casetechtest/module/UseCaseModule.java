@@ -13,7 +13,7 @@ import dagger.Provides;
  * Created by jcgarcia on 25/1/17.
  */
 
-@Module
+@Module(library = true)
 public class UseCaseModule {
 
     @Provides
