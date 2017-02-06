@@ -7,6 +7,6 @@ import com.jcgarcia.casetechtest.network.entity.Message;
  */
 
 public interface ConnectedThreadable<T1> {
-    void readNetworkMessage(T1 message);
+    void readNetworkMessage();
     void writeNetworkMessage(T1 message);
 }
