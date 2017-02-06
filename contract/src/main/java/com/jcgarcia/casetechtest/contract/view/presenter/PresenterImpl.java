@@ -49,6 +49,8 @@ public abstract class PresenterImpl<T extends PresenterImpl.BaseView> implements
         this.interactorExecutor = interactorExecutor;
     }
 
+
+
     public interface BaseView {
 
         void showDefaultError();

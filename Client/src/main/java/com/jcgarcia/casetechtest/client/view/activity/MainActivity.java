@@ -25,10 +25,12 @@ public class MainActivity extends CaseTestActivity {
     View serverBtn;
     @Bind(R.id.buttonCloseConnection)
     View disconnectBtn;
-    @Bind(R.id.buttonSend)
-    View sendBtn;
-    @Bind(R.id.buttonStopSend)
-    View stopSendBtn;
+    @Bind(R.id.buttonGetRadio)
+    View getRadioBtn;
+    @Bind(R.id.buttonRegisterOn)
+    View registerOnBtn;
+    @Bind(R.id.buttonRegisterOff)
+    View registerOffBtn;
     @Bind(R.id.log)
     TextView logTV;
     private MainPresenter presenter;
@@ -66,25 +68,32 @@ public class MainActivity extends CaseTestActivity {
 
     }
 
-    public void onClickClient(View view) {
-        // Activo el bluetooth si no está activo
-        presenter.onClickClient();
+    @OnClick(R.id.buttonGetRadio)
+    public void onClickGetRadio(View view){
+        presenter.onClickGetRadio();
+    }
+    @OnClick(R.id.buttonRegisterOn)
+    public void onClickbuttonRegisterOn(View view){
+        presenter.onClickbuttonRegisterOn();
+    }
+    @OnClick(R.id.buttonRegisterOff)
+    public void onClickbuttonRegisterOff(View view){
+        presenter.onClickbuttonRegisterOff();
     }
 
-    @OnClick(R.id.buttonSend)
-    public void onClickSend(View view) {
-        presenter.onClickSend();
-    }
+
+
 
     public void updateSendViews(boolean sending) {
-        sendBtn.setEnabled(!sending);
-        stopSendBtn.setEnabled(sending);
+        runOnUiThread(new Runnable() {
+            public void run() {
+//        sendBtn.setEnabled(!sending);
+//        stopSendBtn.setEnabled(sending);
+            }
+        });
     }
 
-    @OnClick(R.id.buttonStopSend)
-    public void onClickStopSend(View view) {
-        presenter.onClickStopSend();
-    }
+
 
     public void printLog(String message) {
         logTV.append(message);
@@ -97,12 +106,16 @@ public class MainActivity extends CaseTestActivity {
     }
 
     public void updateConnectUI() {
+        runOnUiThread(new Runnable() {
+            public void run() {
         stateTV.setText("Conectado");
         serverBtn.setEnabled(false);
-        sendBtn.setEnabled(true);
-        stopSendBtn.setEnabled(false);
+//        sendBtn.setEnabled(true);
+//        stopSendBtn.setEnabled(false);
         disconnectBtn.setEnabled(true);
         logTV.setText("Conectado\n");
+            }
+        });
     }
 
     public void updateDisconnectUI(final String message) {
@@ -110,8 +123,8 @@ public class MainActivity extends CaseTestActivity {
             public void run() {
                 stateTV.setText("Desconectado");
                 serverBtn.setEnabled(true);
-                sendBtn.setEnabled(false);
-                stopSendBtn.setEnabled(false);
+//                sendBtn.setEnabled(false);
+//                stopSendBtn.setEnabled(false);
                 disconnectBtn.setEnabled(false);
                 logTV.append("Desconectado\n");
                 showMessage(message);

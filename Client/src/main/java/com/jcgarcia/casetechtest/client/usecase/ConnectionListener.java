@@ -1,6 +1,8 @@
 package com.jcgarcia.casetechtest.client.usecase;
 
 import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 
 public interface ConnectionListener {
   // Función que será llamada cuando se establezca una conexión
@@ -14,4 +16,21 @@ public interface ConnectionListener {
   void onDisconnected(final String message);
 
   void onDataReceived(String data);
+
+
+  // These should be in another interface but to be faster I'll bypass the
+  // Interface Segregation principle for  this time :)
+  void startConnectedThread();
+  
+  void send(String message);
+
+  void disconnect();
+
+  boolean isConnected();
+
+  BroadcastReceiver getReceiver();
+
+  IntentFilter getIntentFilter();
+
+  void closeAllThreads();
 }
