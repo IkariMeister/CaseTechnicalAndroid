@@ -7,6 +7,7 @@ import android.content.Intent;
 
 import com.jcgarcia.casetechtest.contract.common.Const;
 import com.jcgarcia.casetechtest.module.ForApplication;
+import com.jcgarcia.casetechtest.network.ClientConnection;
 import com.jcgarcia.casetechtest.ui.view.BluetoothConnectionView;
 
 import javax.inject.Inject;
@@ -21,13 +22,16 @@ public class BluetoothConnBroadcastReceiver extends BroadcastReceiver {
     private final BluetoothHelper helper;
 
     private final Context appContext;
+    private final ClientConnection<BluetoothDevice> service;
     private BluetoothConnectionView presenter;
 
     @Inject
     public BluetoothConnBroadcastReceiver(BluetoothHelper pHelper,
-                                          @ForApplication Context pAppContext) {
+                                          @ForApplication Context pAppContext,
+                                          ClientConnection<BluetoothDevice> pService) {
         this.helper = pHelper;
         this.appContext = pAppContext;
+        this.service = pService;
     }
 
     @Override
@@ -48,6 +52,15 @@ public class BluetoothConnBroadcastReceiver extends BroadcastReceiver {
             case Const.ACTION_BLUETOOTH_ON_STATE_CHANGED:
                 int idMensaje = intent.getExtras().getInt(Const.EXTRA_BLUETOOTH_STATE_CHANGED_ID_STRING);
                 presenter.onBluetoothStateChanged(idMensaje);
+                break;
+            case Const.ACTION_BLUETOOTH_CONNECT:
+                bluetoothDevice =
+                        intent.getExtras().getParcelable(Const.EXTRA_BLUETOOTH_DEVICE_SELECTED);
+                service.onConnected(bluetoothDevice);
+                break;
+
+            case Const.ACTION_BLUETOOTH_DISCONNECT:
+                service.onStop();
                 break;
         }
     }

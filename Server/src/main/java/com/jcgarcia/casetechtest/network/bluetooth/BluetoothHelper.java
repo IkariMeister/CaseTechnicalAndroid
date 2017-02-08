@@ -5,7 +5,10 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+
+import com.jcgarcia.casetechtest.contract.common.Const;
 
 import javax.inject.Inject;
 
@@ -37,8 +40,12 @@ public class BluetoothHelper {
     }
 
     public void sendConnectBroadcast(Context context, BluetoothDevice bluetoothDevice) {
-//        Intent intent = BluetoothCommunicationService.buildBluetoothConnectIntent(bluetoothDevice);
-//        context.sendBroadcast(intent);
+        Intent intent = new Intent(Const.ACTION_BLUETOOTH_CONNECT);
+
+        Bundle extras = new Bundle();
+        extras.putParcelable(Const.EXTRA_BLUETOOTH_DEVICE_SELECTED, bluetoothDevice);
+        intent.putExtras(extras);
+        context.sendBroadcast(intent);
     }
 
     public void sendDisconnectBroadcast(Context context) {

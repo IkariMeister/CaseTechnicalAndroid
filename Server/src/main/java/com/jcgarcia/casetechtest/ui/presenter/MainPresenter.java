@@ -69,10 +69,10 @@ public class MainPresenter extends PresenterImpl<MainActivity> implements Blueto
     }
 
     public void launchSelectDeviceActivity() {
-        view.startActivity(new Intent("android.bluetooth.devicepicker.action.LAUNCH").putExtra(
+        view.startActivityForResult(new Intent("android.bluetooth.devicepicker.action.LAUNCH").putExtra(
                 "android.bluetooth.devicepicker.extra.NEED_AUTH", false)
                 .putExtra("android.bluetooth.devicepicker.extra.FILTER_TYPE", 0)
-                .setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
+                .setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS), Const.REQUEST_SELECT_BLUETOOTH);
     }
 
     public void startEnableBluetooth() {

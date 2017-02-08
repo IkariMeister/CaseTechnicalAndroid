@@ -1,10 +1,13 @@
 package com.jcgarcia.casetechtest.module;
 
 import android.app.Application;
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
 import com.jcgarcia.casetechtest.application.CaseTechTestApp;
+import com.jcgarcia.casetechtest.network.ClientConnection;
+import com.jcgarcia.casetechtest.network.bluetooth.BluetoothCommunicationService;
 import com.jcgarcia.casetechtest.network.bluetooth.BluetoothConnBroadcastReceiver;
 import com.jcgarcia.casetechtest.ui.activity.MainActivity;
 
@@ -38,6 +41,17 @@ public class AndroidModules {
     public TelephonyManager providesTelephonyManager() {
         return (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }
+
+    @Provides
+    public BluetoothCommunicationService providesBluetoothCommunicationService() {
+        return new BluetoothCommunicationService();
+    }
+
+    @Provides
+    public ClientConnection<BluetoothDevice> providesClientConnectionBluetoothDevice() {
+        return new BluetoothCommunicationService();
+    }
+
 
     private void validateApplication(Application application) {
         if (application == null) {

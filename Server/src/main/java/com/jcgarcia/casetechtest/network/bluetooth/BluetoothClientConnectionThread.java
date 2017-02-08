@@ -52,4 +52,8 @@ public class BluetoothClientConnectionThread extends Thread {
         }
         bluetoothConnectionListener.onConnectionFailed("Se canceló el hilo");
     }
+
+    public BluetoothSocket getSocket() {
+        return socket;
+    }
 }

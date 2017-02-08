@@ -2,7 +2,6 @@ package com.jcgarcia.casetechtest.network.bluetooth;
 
 import android.accounts.NetworkErrorException;
 import android.bluetooth.BluetoothSocket;
-import android.util.Log;
 
 import com.jcgarcia.casetechtest.network.ClientConnection;
 import com.jcgarcia.casetechtest.network.ConnectedThreadable;
@@ -23,15 +22,15 @@ import javax.inject.Inject;
 
 public class BluetoothConnectedThread extends Thread implements ConnectedThreadable<Message> {
 
-    private ClientConnection<BluetoothSocket> bluetoothConnectionListener;
     private final BluetoothSocket socket;
     private final InputStream inputStream;
     private final OutputStream outputStream;
     @Inject
     Genson gs;
+    private ClientConnection bluetoothConnectionListener;
 
     public BluetoothConnectedThread(BluetoothSocket socket,
-                                    ClientConnection<BluetoothSocket> bluetoothConnectionListener) {
+                                    ClientConnection bluetoothConnectionListener) {
 
         this.socket = socket;
         this.bluetoothConnectionListener = bluetoothConnectionListener;
