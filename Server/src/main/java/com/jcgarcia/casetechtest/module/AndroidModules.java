@@ -4,6 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
+import com.jcgarcia.casetechtest.application.CaseTechTestApp;
+import com.jcgarcia.casetechtest.network.bluetooth.BluetoothConnBroadcastReceiver;
+import com.jcgarcia.casetechtest.ui.activity.MainActivity;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -12,7 +16,10 @@ import dagger.Provides;
  */
 
 
-@Module(library = true) public class AndroidModules {
+@Module(library = true,
+        injects = {CaseTechTestApp.class, MainActivity.class, BluetoothConnBroadcastReceiver.class},
+        complete = false)
+public class AndroidModules {
 
     private final Context context;
 
@@ -22,6 +29,7 @@ import dagger.Provides;
     }
 
     @Provides
+    @ForApplication
     Context provideApplicationContext() {
         return context;
     }

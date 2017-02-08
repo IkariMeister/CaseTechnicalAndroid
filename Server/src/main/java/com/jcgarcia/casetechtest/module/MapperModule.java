@@ -14,7 +14,7 @@ import dagger.Provides;
  * Created by jcgarcia on 25/1/17.
  */
 
-@Module(library = true)
+@Module(library = true, complete = false)
 public class MapperModule {
 
     @Provides

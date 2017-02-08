@@ -11,15 +11,13 @@ import android.util.Log;
 import com.jcgarcia.casetechtest.network.ClientConnection;
 import com.jcgarcia.casetechtest.network.entity.Message;
 
-import javax.inject.Inject;
-
 import static android.content.ContentValues.TAG;
 
 /**
  * Created by jcgarcia on 5/2/17.
  */
 
-public class BluetoothComunicationService extends Service implements ClientConnection<BluetoothSocket> {
+public class BluetoothCommunicationService extends Service implements ClientConnection<BluetoothSocket> {
 
 
     public final static String ACTION_BLUETOOTH_CONNECT = "ACTION_BLUETOOTH_CONNECT";
@@ -49,7 +47,7 @@ public class BluetoothComunicationService extends Service implements ClientConne
         Log.d(TAG, "onConnected");
         connectedThread = new BluetoothConnectedThread(socket, this);
         connectedThread.start();
-        connectedThread.sendDeviceConnected();
+//        connectedThread.sendDeviceConnected();
         sendOnConnectBroadcast();
 
     }
@@ -81,7 +79,7 @@ public class BluetoothComunicationService extends Service implements ClientConne
     @Override
     public void onDestroy() {
         closeAllThreads();
-        unregisterReceiver(bluetoothConnectionReceiver);
+//        unregisterReceiver(bluetoothConnectionReceiver);
         Log.d(TAG, "Parado Servicio");
         super.onDestroy();
     }
@@ -101,22 +99,22 @@ public class BluetoothComunicationService extends Service implements ClientConne
     private void registerReceiver() {
         IntentFilter intent = new IntentFilter(ACTION_BLUETOOTH_CONNECT);
         intent.addAction(ACTION_BLUETOOTH_DISCONNECT);
-        registerReceiver(bluetoothConnectionReceiver, intent);
+//        registerReceiver(bluetoothConnectionReceiver, intent);
     }
 
     private void sendOnConnectBroadcast() {
-        Intent intent = WearableConnectionActivity.buildBluetoothOnConnectIntent();
-        sendBroadcast(intent);
+//        Intent intent = WearableConnectionActivity.buildBluetoothOnConnectIntent();
+//        sendBroadcast(intent);
     }
 
     private void sendOnDisconnectBroadcast(String message) {
-        Intent intent = WearableConnectionActivity.buildBluetoothOnDisconnectIntent(message);
-        sendBroadcast(intent);
+//        Intent intent = WearableConnectionActivity.buildBluetoothOnDisconnectIntent(message);
+//        sendBroadcast(intent);
     }
 
     private void sendOnStateChangedBroadcast(int idMessage) {
-        Intent intent = WearableConnectionActivity.buildBluetoothOnStateChangedIntent(idMessage);
-        sendBroadcast(intent);
+//        Intent intent = WearableConnectionActivity.buildBluetoothOnStateChangedIntent(idMessage);
+//        sendBroadcast(intent);
     }
 
     private void sendServiceRunningBroadcast() {

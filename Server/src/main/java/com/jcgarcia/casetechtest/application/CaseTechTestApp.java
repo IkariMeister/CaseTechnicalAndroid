@@ -3,9 +3,6 @@ package com.jcgarcia.casetechtest.application;
 import android.app.Application;
 
 import com.jcgarcia.casetechtest.module.AndroidModules;
-import com.jcgarcia.casetechtest.module.MapperModule;
-import com.jcgarcia.casetechtest.module.TelephonyModule;
-import com.jcgarcia.casetechtest.module.UseCaseModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +18,8 @@ public class CaseTechTestApp extends Application {
 
     private ObjectGraph graph;
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
         initGraph();
         injectApplication();
@@ -61,8 +59,8 @@ public class CaseTechTestApp extends Application {
     }
 
     private List<Object> getModules() {
-        return Arrays.asList(new AndroidModules(this), new MapperModule(),
-                new UseCaseModule(), new TelephonyModule());
+        return Arrays.asList((Object) new AndroidModules(this)/*, new MapperModule(),
+                new UseCaseModule(), new TelephonyModule(), new ActivityModule()*/);
     }
 
 

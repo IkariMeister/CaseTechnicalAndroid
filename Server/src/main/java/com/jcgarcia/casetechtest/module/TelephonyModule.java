@@ -14,7 +14,7 @@ import dagger.Provides;
 /**
  * Created by jcgarcia on 30/1/17.
  */
-@Module(library = true)
+@Module(library = true, complete = false)
 public class TelephonyModule {
 
 
