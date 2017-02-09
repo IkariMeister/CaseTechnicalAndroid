@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CaseTechTest</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="bluetooth_no_device">Este dispositivo no permite conexión bluetooth</string>
+    <string name="bluetooth_state_waiting_connection">Esperando conexión...</string>
+    <string name="bluetooth_state_connected">Conectado</string>
+    <string name="bluetooth_state_disconnected">Desconectado</string>
+    <string name="bluetooth_notification_title">eSTRESS bluetooth</string>
+    <string name="bluetooth_notification_message">eSTRESS bluetooth activo</string>
+    <string name="bluetooth_connecting_automatically">"Conectando automáticamente a "</string>
+    <string name="wearable_connection_title">Conexión dispositivo</string>
 </resources>

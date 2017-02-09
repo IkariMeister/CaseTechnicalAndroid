@@ -23,12 +23,9 @@ public class CaseTestActivity extends AppCompatActivity implements CaseTestView 
     @Override
     protected void onResume() {
         super.onResume();
-        //registerBroadcastReceiver();
-        //updateWearableIconEstate();
     }
     @Override
     protected void onPause() {
-        //unregisterBroadcastReceiver();
         super.onPause();
     }
     @Override
@@ -40,30 +37,7 @@ public class CaseTestActivity extends AppCompatActivity implements CaseTestView 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //initWearableIcon(toolbar);
     }
-//    private void initWearableIcon(Toolbar toolbar) {
-//        wearableIcon = (ImageView) toolbar.findViewById(R.id.icon_wearable);
-//        if (wearableIcon != null) {
-//            wearableIcon.setOnClickListener(new View.OnClickListener() {
-//                @Override public void onClick(View v) {
-//                    launchActivity(WearableConnectionActivity.class, null);
-//                }
-//            });
-//        }
-//    }
-//
-//    private void updateWearableIconEstate() {
-//
-//        if (wearableIcon != null) {
-//            if (EstresContext.instance().isBluetoothConnected()) {
-//                wearableIcon.setImageDrawable(
-//                        getResources().getDrawable(R.drawable.ic_bluetooth_connected));
-//            } else {
-//                wearableIcon.setImageDrawable(getResources().getDrawable(R.drawable.ic_bluetooth_disabled));
-//            }
-//        }
-//    }
 
 
 

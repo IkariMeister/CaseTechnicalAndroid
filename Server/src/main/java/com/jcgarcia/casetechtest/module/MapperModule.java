@@ -14,14 +14,9 @@ import dagger.Provides;
  * Created by jcgarcia on 25/1/17.
  */
 
-@Module(library = true)
+@Module(library = true, complete = false)
 public class MapperModule {
 
-    @Provides
-    @Singleton
-    public Mapper<RadioInfo, String> providesJasonRadioInfoMapper() {
-        return new JsonRadioInfoMapper();
-    }
 
     @Provides
     public Genson providesGeson(){

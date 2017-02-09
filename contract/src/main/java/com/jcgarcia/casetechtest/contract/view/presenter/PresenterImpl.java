@@ -33,6 +33,10 @@ public abstract class PresenterImpl<T extends PresenterImpl.BaseView> implements
         return view;
     }
 
+    public void setView(T view) {
+        this.view = view;
+    }
+
     protected MainThreadExecutor getMainThreadExecutor() {
         return mainThreadExecutor;
     }
@@ -48,7 +52,6 @@ public abstract class PresenterImpl<T extends PresenterImpl.BaseView> implements
     protected void setInteractorExecutor(InteractorExecutor interactorExecutor) {
         this.interactorExecutor = interactorExecutor;
     }
-
 
 
     public interface BaseView {

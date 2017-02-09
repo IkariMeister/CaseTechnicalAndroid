@@ -1,7 +1,5 @@
 package com.jcgarcia.casetechtest.network;
 
-import android.bluetooth.BluetoothSocket;
-
 import com.jcgarcia.casetechtest.network.entity.Message;
 
 /**
@@ -21,4 +19,6 @@ public interface ClientConnection<T1> {
     void onStateChanged(int idStringState);
 
     void onMessageReceived(Message message);
+
+    void onStop();
 }

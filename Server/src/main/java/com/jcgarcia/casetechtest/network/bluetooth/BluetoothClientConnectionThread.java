@@ -9,7 +9,7 @@ import com.jcgarcia.casetechtest.network.ClientConnection;
 import java.io.IOException;
 
 /**
- * Created by ikari on 5/2/17.
+ * Created by jcgarcia on 5/2/17.
  */
 
 public class BluetoothClientConnectionThread extends Thread {
@@ -22,8 +22,7 @@ public class BluetoothClientConnectionThread extends Thread {
         this.bluetoothConnectionListener = bluetoothConnectionListener;
         BluetoothSocket socketTemp = null;
         try {
-            //socketTemp = device.createInsecureRfcommSocketToServiceRecord(Constants.BLUETOOTH_UUID);
-            socketTemp = device.createRfcommSocketToServiceRecord(Const.BLUETOOTH_UUID);
+            socketTemp = device.createRfcommSocketToServiceRecord(Const.THE_UUID);
         } catch (IOException e) {
             bluetoothConnectionListener.onConnectionFailed(
                     "No se pudo crear el socket: " + e.getMessage());
@@ -52,5 +51,9 @@ public class BluetoothClientConnectionThread extends Thread {
         } catch (IOException e) {
         }
         bluetoothConnectionListener.onConnectionFailed("Se canceló el hilo");
+    }
+
+    public BluetoothSocket getSocket() {
+        return socket;
     }
 }

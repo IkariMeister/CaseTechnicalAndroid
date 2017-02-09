@@ -1,7 +1,5 @@
 package com.jcgarcia.casetechtest.domain.entity;
 
-import com.jcgarcia.casetechtest.domain.common.RadioTech;
-
 /**
  * Created by jcgarcia on 24/1/17.
  */
@@ -11,7 +9,7 @@ public class RadioInfo {
 
     private int cell;
     private String carrier;
-    private RadioTech tech;
+    private String tech;
     private SignalLevel signalLevel;
     private RadioLocation location;
 
@@ -31,11 +29,11 @@ public class RadioInfo {
         this.carrier = carrier;
     }
 
-    public RadioTech getTech() {
+    public String getTech() {
         return tech;
     }
 
-    public void setTech(RadioTech tech) {
+    public void setTech(String tech) {
         this.tech = tech;
     }
 
@@ -53,5 +51,16 @@ public class RadioInfo {
 
     public void setLocation(RadioLocation location) {
         this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "RadioInfo{" +
+                "cell=" + cell +
+                ", carrier='" + carrier + '\'' +
+                ", tech=" + tech +
+                ", signalLevel=" + signalLevel +
+                ", location=" + location +
+                '}';
     }
 }

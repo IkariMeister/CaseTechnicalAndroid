@@ -13,20 +13,10 @@ import dagger.Provides;
  * Created by jcgarcia on 25/1/17.
  */
 
-@Module(library = true)
+@Module(library = true, complete = false)
 public class UseCaseModule {
 
-    @Provides
-    @Singleton
-    public GetRadio providesGetRadio(){
-        return new GetRadio();
-    }
 
-    @Provides
-    @Singleton
-    public Register providesRegister(){
-        return new Register();
-    }
 
     @Provides
     @Singleton

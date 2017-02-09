@@ -62,4 +62,16 @@ public class LteRadioInfo extends RadioInfo {
     public void setTac(int tac) {
         this.tac = tac;
     }
+
+    @Override
+    public String toString() {
+        return "LteRadioInfo{" +
+                "mcc=" + mcc +
+                ", ci=" + ci +
+                ", pci=" + pci +
+                ", mnc=" + mnc +
+                ", earfcn=" + earfcn +
+                ", tac=" + tac +
+                '}';
+    }
 }

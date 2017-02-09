@@ -70,4 +70,17 @@ public class GsmRadioInfo extends RadioInfo {
     public void setBsic(int bsic) {
         this.bsic = bsic;
     }
+
+    @Override
+    public String toString() {
+        return "GsmRadioInfo{" +
+                "cid=" + cid +
+                ", lac=" + lac +
+                ", mcc=" + mcc +
+                ", mnc=" + mnc +
+                ", psc=" + psc +
+                ", arfcn=" + arfcn +
+                ", bsic=" + bsic +
+                '}';
+    }
 }

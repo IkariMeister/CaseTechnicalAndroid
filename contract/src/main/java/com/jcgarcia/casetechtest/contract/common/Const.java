@@ -14,4 +14,20 @@ public class Const {
     public static final UUID THE_UUID = UUID.fromString("42ad6984-fd66-4b11-900f-a52b454e34ae");
 
     public static final String NAME = "CaseOnIT Technical Test";
+
+    public static final int REQUEST_SELECT_BLUETOOTH = 1;
+    public static final int REQUEST_ENABLE_BLUETOOTH = 2;
+
+    public static final String ACTION_BLUETOOTH_ON_CONNECT = "ACTION_BLUETOOTH_ON_CONNECT";
+    public static final String ACTION_BLUETOOTH_ON_DISCONNECT = "ACTION_BLUETOOTH_ON_DISCONNECT";
+    public static final String ACTION_BLUETOOTH_ON_STATE_CHANGED = "ACTION_BLUETOOTH_ON_STATE_CHANGED";
+    public static final String EXTRA_BLUETOOTH_DISCONNECT_MESSAGE = "EXTRA_BLUETOOTH_DISCONNECT_MESSAGE";
+    public static final String EXTRA_BLUETOOTH_STATE_CHANGED_ID_STRING =
+            "EXTRA_BLUETOOTH_STATE_CHANGED_ID_STRING";
+    public static final String ACTION_DEVICE_SELECTED =
+            "android.bluetooth.devicepicker.action.DEVICE_SELECTED";
+    public final static String ACTION_BLUETOOTH_CONNECT = "ACTION_BLUETOOTH_CONNECT";
+    public final static String ACTION_BLUETOOTH_DISCONNECT = "ACTION_BLUETOOTH_DISCONNECT";
+    public final static String ACTION_BLUETOOTH_SERVICE_RUNNING = "ACTION_BLUETOOTH_SERVICE_RUNNING";
+    public final static String EXTRA_BLUETOOTH_DEVICE_SELECTED = "EXTRA_BLUETOOTH_DEVICE_SELECTED";
 }

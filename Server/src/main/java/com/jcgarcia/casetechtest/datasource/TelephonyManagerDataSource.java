@@ -4,6 +4,7 @@ import android.telephony.CellInfo;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 
+import com.jcgarcia.casetechtest.application.CaseTechTestApp;
 import com.jcgarcia.casetechtest.contract.mapper.Mapper;
 import com.jcgarcia.casetechtest.datasource.location.LocationReaderFactory;
 import com.jcgarcia.casetechtest.domain.common.RadioTech;
@@ -27,8 +28,8 @@ public class TelephonyManagerDataSource implements DataSource<RadioInfo> {
     @Inject
     CellInfoReaderFactory cellInfoReaderFactory;
 
-    public TelephonyManagerDataSource() {
-
+    public TelephonyManagerDataSource(CaseTechTestApp context) {
+        context.inject(this);
     }
     @Override
     public RadioInfo getCurrent() throws Exception {
@@ -40,6 +41,8 @@ public class TelephonyManagerDataSource implements DataSource<RadioInfo> {
         CellLocation location = tm.getCellLocation();
         result.setLocation((RadioLocation) lrf.getLocationReader(location).map(location));
         result.setCarrier(tm.getNetworkOperatorName());
+        result.setTech(radiotech.toString());
+
         return result;
     }
 
