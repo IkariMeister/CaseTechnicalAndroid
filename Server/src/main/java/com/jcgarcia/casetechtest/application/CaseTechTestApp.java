@@ -3,6 +3,7 @@ package com.jcgarcia.casetechtest.application;
 import android.app.Application;
 
 import com.jcgarcia.casetechtest.module.AndroidModules;
+import com.jcgarcia.casetechtest.module.TelephonyModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,8 +60,9 @@ public class CaseTechTestApp extends Application {
     }
 
     private List<Object> getModules() {
-        return Arrays.asList((Object) new AndroidModules(this)/*, new MapperModule(),
-                new UseCaseModule(), new TelephonyModule(), new ActivityModule()*/);
+        return Arrays.asList((Object) new AndroidModules(this), new TelephonyModule()
+                /*, new MapperModule(),
+                new UseCaseModule(), new ActivityModule()*/);
     }
 
 

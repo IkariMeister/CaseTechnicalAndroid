@@ -1,6 +1,16 @@
 package com.jcgarcia.casetechtest;
 
+import android.content.Context;
+
+import com.jcgarcia.casetechtest.application.CaseTechTestApp;
+import com.jcgarcia.casetechtest.contract.executor.AbstractInteractor;
+import com.jcgarcia.casetechtest.contract.executor.InteractorExecutor;
+import com.jcgarcia.casetechtest.contract.executor.MainThreadExecutor;
+import com.jcgarcia.casetechtest.contract.executor.UseCaseListener;
+import com.jcgarcia.casetechtest.datasource.DataSource;
 import com.jcgarcia.casetechtest.datasource.RadioDataSourceFactory;
+import com.jcgarcia.casetechtest.domain.entity.RadioInfo;
+import com.jcgarcia.casetechtest.module.ForApplication;
 
 import javax.inject.Inject;
 
@@ -8,24 +18,41 @@ import javax.inject.Inject;
  * Created by jcgarcia on 24/1/17.
  */
 
-public class GetRadio {
+public class GetRadio extends AbstractInteractor<GetRadio.GetRadioListener> {
 
-    /**
-     * This is a fast aproach to use cases this should be asyncronous and return invokes
-     * successCallback and catch invokes error callback
-     * In this case boolean value represents RegisterOn/RegisterOff messages
-     */
+
+
+    private final DataSource<RadioInfo> mDS;
 
 
     @Inject
-    RadioDataSourceFactory factory;
+    public GetRadio(InteractorExecutor interactorExecutor, MainThreadExecutor mainThreadExecutor,
+                    RadioDataSourceFactory pFactory) {
+        super(interactorExecutor, mainThreadExecutor);
+        this.mDS = pFactory.getDataSource();
+    }
+
+    public void execute(GetRadioListener  listener) {
+        this.listener = listener;
+        getInteractorExecutor().run(this);
+    }
 
     public void doGetRadio() {
         try {
-            //success callback here with data returned
-            factory.getDataSource().getCurrent();
+            RadioInfo result = mDS.getCurrent();
+            listener.onSuccess(result);
+
         } catch (Exception e) {
-            //error callback here with error treatment
+            listener.onError(e);
         }
+    }
+
+    @Override
+    public void run() {
+        doGetRadio();
+    }
+
+    public interface GetRadioListener extends UseCaseListener<RadioInfo> {
+
     }
 }

@@ -16,17 +16,7 @@ import dagger.Provides;
 @Module(library = true, complete = false)
 public class UseCaseModule {
 
-    @Provides
-    @Singleton
-    public GetRadio providesGetRadio(){
-        return new GetRadio();
-    }
 
-    @Provides
-    @Singleton
-    public Register providesRegister(){
-        return new Register();
-    }
 
     @Provides
     @Singleton

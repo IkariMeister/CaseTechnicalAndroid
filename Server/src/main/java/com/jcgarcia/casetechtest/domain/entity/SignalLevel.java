@@ -33,4 +33,13 @@ public class SignalLevel {
     public void setAsuLevel(int asuLevel) {
         this.asuLevel = asuLevel;
     }
+
+    @Override
+    public String toString() {
+        return "SignalLevel{" +
+                "level=" + level +
+                ", dbm=" + dbm +
+                ", asuLevel=" + asuLevel +
+                '}';
+    }
 }

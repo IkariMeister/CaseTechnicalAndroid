@@ -2,6 +2,7 @@ package com.jcgarcia.casetechtest.module;
 
 import com.jcgarcia.casetechtest.contract.mapper.Mapper;
 import com.jcgarcia.casetechtest.datasource.CellInfoReaderFactory;
+import com.jcgarcia.casetechtest.datasource.TelephonyManagerDataSource;
 import com.jcgarcia.casetechtest.datasource.location.LocationReaderFactory;
 import com.jcgarcia.casetechtest.domain.common.RadioTech;
 import com.jcgarcia.casetechtest.mapper.NetworkTypeMapper;
@@ -14,7 +15,8 @@ import dagger.Provides;
 /**
  * Created by jcgarcia on 30/1/17.
  */
-@Module(library = true, complete = false)
+@Module(library = true, complete = false,
+        injects = TelephonyManagerDataSource.class)
 public class TelephonyModule {
 
 

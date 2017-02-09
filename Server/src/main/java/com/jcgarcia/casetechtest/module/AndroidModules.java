@@ -9,7 +9,9 @@ import com.jcgarcia.casetechtest.application.CaseTechTestApp;
 import com.jcgarcia.casetechtest.network.ClientConnection;
 import com.jcgarcia.casetechtest.network.bluetooth.BluetoothCommunicationService;
 import com.jcgarcia.casetechtest.network.bluetooth.BluetoothConnBroadcastReceiver;
+import com.jcgarcia.casetechtest.ui.activity.InterfaceOnlyActivity;
 import com.jcgarcia.casetechtest.ui.activity.MainActivity;
+import com.owlike.genson.Genson;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,7 +22,8 @@ import dagger.Provides;
 
 
 @Module(library = true,
-        injects = {CaseTechTestApp.class, MainActivity.class, BluetoothConnBroadcastReceiver.class},
+        injects = {CaseTechTestApp.class, MainActivity.class, BluetoothConnBroadcastReceiver.class,
+                InterfaceOnlyActivity.class},
         complete = false)
 public class AndroidModules {
 
@@ -50,6 +53,11 @@ public class AndroidModules {
     @Provides
     public ClientConnection<BluetoothDevice> providesClientConnectionBluetoothDevice() {
         return new BluetoothCommunicationService();
+    }
+
+    @Provides
+    public Genson providesGenson(){
+        return new Genson();
     }
 
 
